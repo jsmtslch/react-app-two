@@ -1,0 +1,15 @@
+{
+  "name": "react-app-two",
+  "version": "1.0.0",
+  "description": "Sample project for more practise",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "Jasmeet Singh",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
