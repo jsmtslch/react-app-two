@@ -6,27 +6,17 @@ class App extends React.Component {
       super(props);
       
       this.state = {
-         data: 'Initial data...'
+         data: [{'id':1,'name':'A'},{'id':2,'name':'B'},{'id':3,'name':'C'}]
       }
-      this.updateState = this.updateState.bind(this);
-      this.clearInput = this.clearInput.bind(this);
+      
    };
-   updateState(e) {
-      this.setState({data: e.target.value});
-   }
-   clearInput(){
-       this.setState({data:''});
-        //ReactDOM.findDOMNode(this.refs.myInput).focus();
-        ReactDOM.findDOMNode(this.refs.myParentInputRef).focus();
-   }
+  
    render() {
       return (
          <div>
-            <Content myDataProp = {this.state.data} 
-               updateStateProp = {this.updateState}></Content>
-            <button onClick={this.clearInput}>Clear</button>
-            <input type="text" defaultValue={this.state.data} ref="myParentInputRef"/>
-         </div>
+         {this.state.data.map((dynamicComponent, i) => <Content 
+                  key = {i} myData = {dynamicComponent}/>)}
+        </div>
       );
    }
 }
@@ -34,9 +24,8 @@ class Content extends React.Component {
    render() {
       return (
          <div>
-            <input type = "text" value = {this.props.myDataProp} 
-               onChange = {this.props.updateStateProp} ref="myInput"/>
-            <h3>{this.props.myDataProp}</h3>
+            <div>{this.props.myData.id}</div>
+            <div>{this.props.myData.name}</div>
          </div>
       );
    }
